@@ -15,6 +15,8 @@ import { createApp } from "vue";
 
 // tailwind
 import "@/styles/tailwind.scss";
+// swiper css
+import "swiper/css";
 
 const app = createApp(App);
 
