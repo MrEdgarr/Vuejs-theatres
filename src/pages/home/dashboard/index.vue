@@ -1,49 +1,46 @@
 <template>
     <section>
-        <slider-view />
+        <dashboard-banner />
     </section>
-    <section class="sm:py-8 border-b">
-        <v-container>
-            <div class="!max-w-6xl m-auto md:p-0">
-                <v-tabs v-model="tab" align-tabs="center" class="mb-5">
-                    <v-tab value="nowshowing">
-                        <p class="sm:text-base text-xs font-bold">Đang chiếu</p>
-                    </v-tab>
-                    <v-tab value="comingsoon">
-                        <p class="sm:text-base text-xs font-bold">Sắp chiếu</p>
-                    </v-tab>
-                </v-tabs>
-
-                <v-tabs-window v-model="tab" class="disable-tab-transition">
-                    <v-tabs-window-item value="nowshowing">
-                        <movie-view />
-                    </v-tabs-window-item>
-                    <v-tabs-window-item value="comingsoon">
-                        <movie-view />
-                    </v-tabs-window-item>
-                </v-tabs-window>
-                <div class="text-center">
-                    <v-btn
-                        :size="mobileBreakpoint ? 'small' : 'default'"
-                        variant="outlined"
-                        @click="$router.push({ name: 'movieRedirect' })"
-                    >
-                        Xem thêm
-                        <v-icon>mdi-chevron-right</v-icon>
-                    </v-btn>
-                </div>
-            </div>
-        </v-container>
-    </section>
-    <section class="sm:py-8 border-b">
+    <section class="sm:py-5 border-b">
         <v-container>
             <div class="!max-w-6xl m-auto md:p-0">
                 <div class="text-center mb-5">
-                    <h2 class="sm:text-2xl text-base font-bold">
+                    <h2
+                        class="sm:text-2xl text-base font-bold after:bg-blue-500 after:block after:w-12 after:h-0.5 after:m-auto after:mt-2.5"
+                    >
+                        Phim Đang chiếu
+                    </h2>
+                </div>
+                <dashboard-movie />
+            </div>
+        </v-container>
+    </section>
+    <section class="sm:py-5 border-b">
+        <v-container>
+            <div class="!max-w-6xl m-auto md:p-0">
+                <div class="text-center mb-5">
+                    <h2
+                        class="sm:text-2xl text-base font-bold after:bg-blue-500 after:block after:w-12 after:h-0.5 after:m-auto after:mt-2.5"
+                    >
+                        Phim Sắp chiếu
+                    </h2>
+                </div>
+                <dashboard-movie />
+            </div>
+        </v-container>
+    </section>
+    <section class="sm:py-5 border-b">
+        <v-container>
+            <div class="!max-w-6xl m-auto md:p-0">
+                <div class="text-center mb-5">
+                    <h2
+                        class="sm:text-2xl text-base font-bold after:bg-blue-500 after:block after:w-12 after:h-0.5 after:m-auto after:mt-2.5"
+                    >
                         Blog phim ảnh
                     </h2>
                 </div>
-                <blog-view :isLoading="isLoading" />
+                <dashboard-block :isLoading="isLoading" />
             </div>
         </v-container>
     </section>
@@ -51,28 +48,20 @@
         <v-container>
             <div class="!max-w-6xl m-auto md:p-0">
                 <div class="text-center mb-5">
-                    <h2 class="sm:text-2xl text-base font-bold">
+                    <h2
+                        class="sm:text-2xl text-base font-bold after:bg-blue-500 after:block after:w-12 after:h-0.5 after:m-auto after:mt-2.5"
+                    >
                         Tin tức - Khuyến mãi
                     </h2>
                 </div>
-                <new-view :isLoading="isLoading" />
+                <dashboard-new :isLoading="isLoading" />
             </div>
         </v-container>
     </section>
 </template>
 <script>
-import SliderView from "@/pages/home/dashboard/slider";
-import MovieView from "@/pages/home/dashboard/movie";
-import BlogView from "@/pages/home/dashboard/blog";
-import NewView from "@/pages/home/dashboard/news";
 import { useDisplay } from "vuetify";
 export default {
-    components: {
-        SliderView,
-        MovieView,
-        BlogView,
-        NewView,
-    },
     data() {
         const { xs } = useDisplay();
         return {

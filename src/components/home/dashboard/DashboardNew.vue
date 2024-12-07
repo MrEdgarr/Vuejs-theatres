@@ -85,7 +85,7 @@ export default {
     methods: {
         // tăng độ dài ban đầu của mảng
         loadMore() {
-            if (this.length > this.items.length) return;
+            if (this.lengthItems > this.items.length) return;
             this.lengthItems += 4;
         },
     },

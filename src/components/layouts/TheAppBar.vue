@@ -16,7 +16,7 @@
                 <v-spacer class="md:hidden"></v-spacer>
                 <!-- Logo -->
                 <router-link
-                    :to="{ name: 'dashboardRedirect' }"
+                    :to="{ name: 'DashboardRedirect' }"
                     class="border-none"
                 >
                     <v-img src="@/assets/logo-dark.png" width="100"></v-img>
@@ -29,7 +29,9 @@
                         <v-btn
                             :ripple="false"
                             class="!capitalize"
-                            @click="$router.push({ name: 'movieRedirect' })"
+                            @click="
+                                $router.push({ name: `${value.nameRouter}` })
+                            "
                         >
                             {{ value.name }}
                         </v-btn>
@@ -115,16 +117,12 @@ export default {
         links: [
             {
                 name: "Trang chủ",
-                nameRouter: "dashboardRedirect",
+                nameRouter: "DashboardRedirect",
             },
 
             {
                 name: "Lịch chiếu",
-                nameRouter: "showtimeRedirect",
-            },
-            {
-                name: "Phim chiếu",
-                nameRouter: "movieRedirect",
+                nameRouter: "ShowtimeRedirect",
             },
 
             {

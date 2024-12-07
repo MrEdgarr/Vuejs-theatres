@@ -4,9 +4,6 @@
             :slidesPerView="'auto'"
             :grabCursor="true"
             :freeMode="true"
-            :pagination="{
-                clickable: true,
-            }"
             @init="(swiper) => ($swiper = swiper)"
             :loop="true"
             :modules="modules"
@@ -37,6 +34,11 @@
                                 src="https://cdn.galaxycine.vn/media/2024/12/4/moana-2-500_1733308287086.jpg"
                                 cover
                             >
+                                <div class="grid place-items-center h-full">
+                                    <v-icon class="!text-5xl text-white">
+                                        mdi-play-circle-outline
+                                    </v-icon>
+                                </div>
                             </v-img>
                         </div>
 
@@ -45,7 +47,12 @@
                                 class="font-semibold text-left sm:text-base text-sm cursor-pointer line-clamp-1"
                             >
                                 <!-- {{ value.name }} -->
-                                asd
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Et nostrum voluptatem illum
+                                neque reprehenderit obcaecati dolorem placeat
+                                eum accusantium eveniet corrupti incidunt, iusto
+                                voluptatibus rerum error? Quibusdam, possimus
+                                alias. Corporis?
                             </p>
                         </div>
                     </div>
@@ -53,7 +60,7 @@
             </swiper-slide>
         </swiper>
         <div
-            class="absolute w-full top-[calc(50%-65px)] -translate-y-1/2 z-10 md:block hidden"
+            class="absolute w-full top-[calc(50%-50px)] -translate-y-1/2 z-10 md:block hidden"
         >
             <div
                 class="btn_prev absolute bg-white w-10 h-10 border rounded-full elevation-3 -left-5 z-10 cursor-pointer !grid place-items-center"
@@ -73,9 +80,8 @@
 <script>
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css/pagination";
 // import required modules
-import { Pagination, FreeMode, Autoplay } from "swiper/modules";
+import { FreeMode, Autoplay } from "swiper/modules";
 export default {
     props: {
         movies: {
@@ -92,7 +98,7 @@ export default {
     },
     data() {
         return {
-            modules: [FreeMode, Pagination, Autoplay],
+            modules: [FreeMode, Autoplay],
         };
     },
 };

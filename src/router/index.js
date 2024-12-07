@@ -16,13 +16,36 @@ const routes = [
         children: [
             {
                 path: "/",
-                name: "dashboardRedirect",
+                name: "DashboardRedirect",
                 component: () => import("@/pages/home/dashboard"),
             },
             {
-                path: "/phimchieu",
-                name: "movieRedirect",
+                path: "/showtimes",
+                name: "ShowtimeRedirect",
+                component: () => import("@/pages/home/showtime"),
+            },
+            {
+                path: "/movies",
                 component: () => import("@/pages/home/movie"),
+                children: [
+                    {
+                        path: ":id",
+                        name: "MovieRedirect",
+                        component: () =>
+                            import("@/components/home/movies/MovieContent.vue"),
+                    },
+                    {
+                        path: ":id/seats",
+                        name: "SeatRedirect",
+                        component: () =>
+                            import("@/components/home/booking/BookingSeat.vue"),
+                    },
+                ],
+            },
+            {
+                path: "/payment",
+                name: "PaymentRedirect",
+                component: () => import("@/pages/home/payment"),
             },
         ],
     },
