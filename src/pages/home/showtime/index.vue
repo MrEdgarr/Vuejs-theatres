@@ -33,6 +33,13 @@
     </section>
 </template>
 <script>
-export default {};
+import ShowtimeFilter from "@/templates/home/showtime/ShowtimeFilter.vue";
+import ShowtimeContent from "@/templates/home/showtime/ShowtimeContent.vue";
+export default {
+    components: {
+        ShowtimeFilter,
+        ShowtimeContent,
+    },
+};
 </script>
 <style lang=""></style>

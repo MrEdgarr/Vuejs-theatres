@@ -4,6 +4,11 @@
     </section>
 </template>
 <script>
-export default {};
+import BookingPayment from "@/templates/home/booking/BookingPayment.vue";
+export default {
+    components: {
+        BookingPayment,
+    },
+};
 </script>
 <style></style>

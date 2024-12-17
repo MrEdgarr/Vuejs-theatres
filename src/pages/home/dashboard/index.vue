@@ -60,8 +60,19 @@
     </section>
 </template>
 <script>
+import DashboardBanner from "@/templates/home/dashboard/DashboardBanner.vue";
+import DashboardMovie from "@/templates/home/dashboard/DashboardMovie.vue";
+import DashboardBlock from "@/templates/home/dashboard/DashboardBlock.vue";
+import DashboardNew from "@/templates/home/dashboard/DashboardNew.vue";
+
 import { useDisplay } from "vuetify";
 export default {
+    components: {
+        DashboardBanner,
+        DashboardMovie,
+        DashboardBlock,
+        DashboardNew,
+    },
     data() {
         const { xs } = useDisplay();
         return {

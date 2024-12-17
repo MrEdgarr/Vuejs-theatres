@@ -32,13 +32,13 @@ const routes = [
                         path: ":id",
                         name: "MovieRedirect",
                         component: () =>
-                            import("@/components/home/movies/MovieContent.vue"),
+                            import("@/templates/home/movies/MovieContent.vue"),
                     },
                     {
                         path: ":id/seats",
                         name: "SeatRedirect",
                         component: () =>
-                            import("@/components/home/booking/BookingSeat.vue"),
+                            import("@/templates/home/booking/BookingSeat.vue"),
                     },
                 ],
             },

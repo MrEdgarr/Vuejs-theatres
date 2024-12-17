@@ -19,7 +19,7 @@
                     :to="{ name: 'DashboardRedirect' }"
                     class="border-none"
                 >
-                    <v-img src="@/assets/logo-dark.png" width="100"></v-img>
+                    <v-img src="@/assets/logo-black.png" width="100"></v-img>
                 </router-link>
                 <!-- Tạo khoảng cách giữa hai thành phần. -->
                 <v-spacer class="md:block hidden"></v-spacer>

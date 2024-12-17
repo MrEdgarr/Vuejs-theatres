@@ -11,7 +11,11 @@
     </section>
 </template>
 <script>
+import MovieBanner from "@/templates/home/movies/MovieBanner.vue";
 export default {
+    components: {
+        MovieBanner,
+    },
     data() {
         return {
             tab: false,
