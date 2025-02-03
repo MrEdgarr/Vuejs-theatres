@@ -1,4 +1,4 @@
-const items = [
+const itemNew = [
     {
         id: 1,
         title: "Mua vé Lotte Cinema săn bắp nước miễn phí trên MoMo!",

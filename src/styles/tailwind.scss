@@ -2,18 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-.disable-tab-transition {
-    overflow: unset !important;
+// .disable-tab-transition {
+//     overflow: unset !important;
 
-    .v-window__container {
-        block-size: auto !important;
-    }
+//     .v-window__container {
+//         block-size: auto !important;
+//     }
 
-    .v-window-item:not(.v-window-item--active) {
-        display: none !important;
-    }
+//     .v-window-item:not(.v-window-item--active) {
+//         display: none !important;
+//     }
 
-    .v-window__container .v-window-item {
-        transform: none !important;
-    }
+//     .v-window__container .v-window-item {
+//         transform: none !important;
+//     }
+// }
+.v-active-link .v-list-item {
+    color: rgb(var(--v-theme-primary)) !important;
+    background-color: rgb(var(--v-theme-primary), 0.15) !important;
+    border-radius: 24px !important;
+}
+.v-table.v-table--fixed-header.v-table--fixed-footer {
+    height: calc(100vh - 200px);
+    // min-height: calc(100vh - 200px);
+}
+.v-data-table-rows-no-data {
+    height: calc(100vh - 400px);
 }

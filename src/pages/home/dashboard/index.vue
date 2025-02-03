@@ -1,6 +1,6 @@
 <template>
     <section>
-        <dashboard-banner />
+        <dashboard-banner :is-loading="isLoading" />
     </section>
     <section class="sm:py-5 border-b">
         <v-container>
@@ -12,7 +12,10 @@
                         Phim Đang chiếu
                     </h2>
                 </div>
-                <dashboard-movie />
+                <dashboard-movie
+                    :movies="movieStore.movies"
+                    :is-loading="isLoading"
+                />
             </div>
         </v-container>
     </section>
@@ -26,7 +29,10 @@
                         Phim Sắp chiếu
                     </h2>
                 </div>
-                <dashboard-movie />
+                <dashboard-movie
+                    :movies="moviereverse"
+                    :is-loading="isLoading"
+                />
             </div>
         </v-container>
     </section>
@@ -60,25 +66,51 @@
     </section>
 </template>
 <script>
-import DashboardBanner from "@/templates/home/dashboard/DashboardBanner.vue";
-import DashboardMovie from "@/templates/home/dashboard/DashboardMovie.vue";
-import DashboardBlock from "@/templates/home/dashboard/DashboardBlock.vue";
-import DashboardNew from "@/templates/home/dashboard/DashboardNew.vue";
+// import DashboardBanner from "@/templates/home/dashboard/DashboardBanner.vue";
+// import DashboardMovie from "@/templates/home/dashboard/DashboardMovie.vue";
+// import DashboardBlock from "@/templates/home/dashboard/DashboardBlock.vue";
+// import DashboardNew from "@/templates/home/dashboard/DashboardNew.vue";
 
-import { useDisplay } from "vuetify";
+import { mapStores } from "pinia";
+import { movieAppStore } from "@/stores/MovieStore";
 export default {
-    components: {
-        DashboardBanner,
-        DashboardMovie,
-        DashboardBlock,
-        DashboardNew,
-    },
+    // components: {
+    //     DashboardBanner,
+    //     DashboardMovie,
+    //     DashboardBlock,
+    //     DashboardNew,
+    // },
     data() {
-        const { xs } = useDisplay();
         return {
-            mobileBreakpoint: xs, //thiết kế đáp ứng < 600
             tab: null,
+            moviereverse: null,
+            isLoading: false,
         };
+    },
+
+    computed: {
+        ...mapStores(movieAppStore),
+    },
+    methods: {
+        async fetchData() {
+            try {
+                this.isLoading = true;
+                await this.movieStore.fetchAll();
+                this.moviereverse = [...this.movieStore.movies].reverse();
+                this.isLoading = false;
+            } catch (error) {
+                console.log(error);
+            }
+        },
+    },
+    mounted() {
+        this.fetchData();
+        // console.log(
+        //     new Intl.NumberFormat("vi-VN", {
+        //         style: "currency",
+        //         currency: "VND",
+        //     }).format(10000000)
+        // );
     },
 };
 </script>

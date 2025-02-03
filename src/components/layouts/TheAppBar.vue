@@ -83,7 +83,10 @@
                         </v-btn>
                     </template>
                 </div>
-                <div class="md:hidden block">
+                <div
+                    class="md:hidden block"
+                    @click="authStore.isLoginDialogOpen = true"
+                >
                     <v-icon> mdi-account </v-icon>
                 </div>
             </v-toolbar>
@@ -108,7 +111,7 @@
 </template>
 <script>
 import { mapStores } from "pinia";
-import { authAppStore } from "@/stores/auth";
+import { authAppStore } from "@/stores/AuthStore";
 
 export default {
     data: () => ({

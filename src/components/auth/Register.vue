@@ -23,7 +23,7 @@
                 <v-card-text class="grid">
                     <div>
                         <v-text-field
-                            v-model="formValue.fullName"
+                            v-model="defaultForm.fullName"
                             :rules="[rules.required, rules.min]"
                             density="compact"
                             variant="outlined"
@@ -32,7 +32,7 @@
                     </div>
                     <div>
                         <v-text-field
-                            v-model="formValue.email"
+                            v-model="defaultForm.email"
                             density="compact"
                             :rules="[rules.required, rules.emailRules]"
                             variant="outlined"
@@ -41,7 +41,7 @@
                     </div>
                     <div>
                         <v-text-field
-                            v-model="formValue.phone"
+                            v-model="defaultForm.phone"
                             density="compact"
                             :rules="[rules.required, rules.phoneRules]"
                             variant="outlined"
@@ -50,7 +50,7 @@
                     </div>
                     <div>
                         <v-text-field
-                            v-model="formValue.password"
+                            v-model="defaultForm.password"
                             density="compact"
                             label="Mật khẩu"
                             :rules="[rules.required, rules.min]"
@@ -64,12 +64,13 @@
                     </div>
                     <div>
                         <v-text-field
-                            v-model="formValue.passwordConfirm"
+                            v-model="defaultForm.passwordConfirm"
                             density="compact"
                             label="Mật khẩu"
                             :rules="[
-                                formValue.password ===
-                                    formValue.passwordConfirm ||
+                                rules.required,
+                                defaultForm.password ===
+                                    defaultForm.passwordConfirm ||
                                     'Mật khẩu phải trùng khớp',
                             ]"
                             :append-inner-icon="
@@ -142,7 +143,7 @@
 <script>
 import { validatioForm } from "@/utils/validationForm";
 import { mapStores } from "pinia";
-import { authAppStore } from "@/stores/auth.js";
+import { authAppStore } from "@/stores/AuthStore.js";
 
 const defaultForm = {
     fullName: "12345",
@@ -155,7 +156,7 @@ export default {
     data() {
         return {
             rules: validatioForm,
-            formValue: defaultForm,
+            defaultForm: defaultForm,
             visible: {
                 pass: false,
                 config: false,

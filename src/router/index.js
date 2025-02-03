@@ -32,13 +32,13 @@ const routes = [
                         path: ":id",
                         name: "MovieRedirect",
                         component: () =>
-                            import("@/templates/home/movies/MovieContent.vue"),
+                            import("@/components/homes/movie/MovieContent.vue"),
                     },
                     {
-                        path: ":id/seats",
+                        path: ":id",
                         name: "SeatRedirect",
                         component: () =>
-                            import("@/templates/home/booking/BookingSeat.vue"),
+                            import("@/components/homes/booking/BookinSeat.vue"),
                     },
                 ],
             },
@@ -49,12 +49,49 @@ const routes = [
             },
         ],
     },
+    {
+        path: "/admin",
+        component: () => import("@/layouts/admin/FullLayout.vue"),
+        children: [
+            {
+                path: "admin/dashboard",
+                name: "adminDashboardRedirect",
+                component: () => import("@/pages/admin/Dashboard.vue"),
+            },
+            {
+                path: "movie",
+                name: "adminFilmRedirect",
+                component: () => import("@/pages/admin/MovieManagement.vue"),
+            },
+            {
+                path: "showtime",
+                name: "adminShowtimeRedirect",
+                component: () => import("@/pages/admin/ShowtimeManagement.vue"),
+            },
+            {
+                path: "cinema",
+                name: "adminCinemaRedirect",
+                component: () => import("@/pages/admin/CinemaManagement.vue"),
+            },
+            {
+                path: "accountadmin",
+                name: "adminAccountRedirect",
+                component: () => import("@/pages/admin/AdminManagement.vue"),
+            },
+            {
+                path: "accountclient",
+                name: "clientAccountRedirect",
+                component: () => import("@/pages/admin/UserManagement.vue"),
+            },
+        ],
+    },
 ];
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: setupLayouts(routes),
     routes,
+    linkActiveClass: "v-active-link",
 });
 
 // Workaround for https://github.com/vitejs/vite/issues/11804

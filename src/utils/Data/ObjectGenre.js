@@ -1,0 +1,23 @@
+const itemGenre = [
+    "Hành động",
+    "Phiêu lưu",
+    "Bí ẩn",
+    "Hài",
+    "Chính kịch",
+    "Lãng mạn",
+    "Gia đình",
+    "Hoạt hình",
+    "Tâm lý",
+    "Kinh dị",
+    "Hình sự",
+    "Chiến tranh",
+    "Bi kịch",
+    "Cổ trang",
+    "Ca nhạc",
+    "Khoa học viễn tưởng",
+    "Tài liệu",
+    "Tâm lý tình cảm",
+    "Phiêu lưu, mạo hiểm",
+    "Trinh thám",
+];
+export default itemGenre;

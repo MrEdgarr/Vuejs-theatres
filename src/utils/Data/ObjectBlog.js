@@ -1,4 +1,4 @@
-const items = [
+const itemBlog = [
     {
         id: 1,
         title: "Danh sách phim hay Netflix tháng 5/2024",

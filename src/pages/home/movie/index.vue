@@ -12,29 +12,12 @@
 </template>
 <script>
 import MovieBanner from "@/templates/home/movies/MovieBanner.vue";
+
 export default {
     components: {
         MovieBanner,
     },
-    data() {
-        return {
-            tab: false,
-            lengthItems: 8,
-        };
-    },
-    methods: {
-        // tăng độ dài ban đầu của mảng
-        loadMore() {
-            if (this.lengthItems > 20) return;
-            this.lengthItems += 4;
-        },
-    },
-    computed: {
-        // hàm tính toán sẽ trả về mảng mới dựa trên biến items
-        itemsLoaded() {
-            // return this.items.slice(0, this.lengthItems);
-        },
-    },
+    data() {},
 };
 </script>
 <style lang=""></style>

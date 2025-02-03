@@ -86,33 +86,43 @@
                             ></v-img>
 
                             <v-icon
-                                :size="mobileBreakpoint ? 'default' : 'x-large'"
+                                :size="
+                                    $vuetify.display.xs ? 'default' : 'x-large'
+                                "
                                 class="mx-1 my-5 hover:scale-125 hover:text-sky-700"
                                 >mdi-facebook</v-icon
                             >
                             <v-icon
-                                :size="mobileBreakpoint ? 'default' : 'x-large'"
+                                :size="
+                                    $vuetify.display.xs ? 'default' : 'x-large'
+                                "
                                 class="mx-1 my-5 hover:scale-125 hover:text-sky-700"
                                 >mdi-youtube</v-icon
                             >
                             <v-icon
-                                :size="mobileBreakpoint ? 'default' : 'x-large'"
+                                :size="
+                                    $vuetify.display.xs ? 'default' : 'x-large'
+                                "
                                 class="mx-1 my-5 hover:scale-125 hover:text-sky-700"
                                 >mdi-instagram</v-icon
                             >
                             <v-icon
-                                :size="mobileBreakpoint ? 'default' : 'x-large'"
+                                :size="
+                                    $vuetify.display.xs ? 'default' : 'x-large'
+                                "
                                 class="mx-1 my-5 hover:scale-125 hover:text-sky-700"
                                 >mdi-gitlab</v-icon
                             >
                             <v-icon
-                                :size="mobileBreakpoint ? 'default' : 'x-large'"
+                                :size="
+                                    $vuetify.display.xs ? 'default' : 'x-large'
+                                "
                                 class="mx-1 my-5 hover:scale-125 hover:text-sky-700"
                                 >mdi-github</v-icon
                             >
                             <v-img
                                 src="http://online.gov.vn/PublicImages/2015/08/27/11/20150827110756-dathongbao.png"
-                                :width="mobileBreakpoint ? '100' : '150'"
+                                :width="$vuetify.display.xs ? '100' : '150'"
                             ></v-img>
                         </div>
                     </div>
@@ -136,13 +146,9 @@
 </template>
 
 <script>
-import { useDisplay } from "vuetify";
 export default {
     data() {
-        const { xs } = useDisplay();
-        return {
-            mobileBreakpoint: xs,
-        };
+        return {};
     },
 };
 </script>
